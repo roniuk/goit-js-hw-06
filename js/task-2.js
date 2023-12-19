@@ -8,11 +8,13 @@ class Storage {
     }
 
     addItem(newItem) {
-    this.#items.push(newItem);
+        this.#items.push(newItem);
     }
 
     removeItem(itemToRemove) {
-    this.#items.splice(1, 1)
+        let delItem = this.#items.filter((item) => item != itemToRemove);
+        this.#items = delItem;
+       
     }
 }
     
@@ -21,5 +23,5 @@ console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
 storage.addItem("Droid");
 console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
 storage.removeItem("Prolonger");
-console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]  
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
 
